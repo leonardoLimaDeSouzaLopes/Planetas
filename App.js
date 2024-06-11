@@ -1,6 +1,7 @@
 import { StatusBar } from 'expo-status-bar';
 import React, { useState } from 'react';
-import { Modal, Pressable, StyleSheet, Text, View, ScrollView} from 'react-native';
+import { Modal, Pressable, StyleSheet, Image, Text, View, ScrollView} from 'react-native';
+import { ImageBackground } from 'react-native-web';
 
 export default function App() {
 
@@ -9,21 +10,24 @@ export default function App() {
   return (
     <ScrollView>
       <StatusBar style="auto" />
+      <ImageBackground style={styles.fundo} source={require("./assets/background.png")}>
+        <Pressable onPress={() => {setVisivel(true)}}><Text style={styles.texto}>Algo</Text></Pressable>
+      </ImageBackground>
       <Modal visible={visivel} >
-        <View style={styles.modal}>
-        <Pressable onPress={() => {setVisivel(false)}}><Text>lol</Text></Pressable>
-        </View>
+        <ImageBackground style={styles.fundo} source={require("./assets/background.png")}>
+          <Pressable onPress={() => {setVisivel(false)}}><Text style={styles.texto}>Algo</Text></Pressable>
+        </ImageBackground>
       </Modal>
-      <Pressable onPress={() => {setVisivel(true)}}><Text>lol</Text></Pressable>
     </ScrollView>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
-    alignItems: 'center',
+  fundo: {
+    backgroundColor: "#000000",
+    flex:1,
   },
-  modal: {
-    backgroundColor: "#0000ff",
+  texto: {
+    color: "#0000ff",
   },
 });
