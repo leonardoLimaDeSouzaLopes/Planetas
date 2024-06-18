@@ -7,6 +7,65 @@ export default function App() {
 
   const [visivel, setVisivel] = useState(false);
 
+  const image = "./assets/background.png";
+
+  const [planeta, setPlaneta] = useState([
+    {
+      nome: "Terra",
+      especies: ["Humanos"],
+      composicao: ["Terra", "Água", "Rocha"],
+      sistemaEstelar: "Sistema Solar",
+    },
+    {
+      nome: "Piscciss",
+      especies: ["Piscciss Volanns", "Piscciss Premanns"],
+      composicao: ["Água", "Rocha"],
+      sistemaEstelar: "Desconhecido",
+    },
+    {
+      nome: "Aranhascimmia",
+      especies: ["Arachnichimps"],
+      composicao: ["Árvores", "Terra", "Rocha", "Água Verde"],
+      sistemaEstelar: "Desconhecido",
+    },
+    {
+      nome: "Peptos XII",
+      especies: ["Gourmandos"],
+      composicao: ["Rocha Rosa"],
+      sistemaEstelar: "Sistema Peptos",
+    },
+    {
+      nome: "Mikd'lty",
+      especies: ["Necrofriggianos"],
+      composicao: ["Gelo", "Fogo", "Rocha"],
+      sistemaEstelar: "Sistema Monceros",
+    },
+    {
+      nome: "Petropia",
+      especies: ["Petrosapiens", "Crystalsapiens"],
+      composicao: ["Cristal"],
+      sistemaEstelar: "Desconhecido",
+    },
+    {
+      nome: "Galvan Prime",
+      especies: ["Galvanianos", "Mecamorfos Galvânicos"],
+      composicao: ["Terra, Rocha"],
+      sistemaEstelar: "Sistema Galvan",
+    },
+    {
+      nome: "Anur Transyl",
+      especies: ["Transylianos", "Ectonuritas", "Anur Khufos", "Loboans"],
+      composicao: ["Terra, Rocha, Teias Roxas"],
+      sistemaEstelar: "Sistema Anur",
+    },
+    {
+      nome: "Perplexaedro",
+      especies: ["Nenhuma"],
+      composicao: ["Matérial Branco Desconhecido"],
+      sistemaEstelar: "Desconhecido",
+    },
+  ]);
+
   return (
     <ScrollView>
       <StatusBar style="auto" />
