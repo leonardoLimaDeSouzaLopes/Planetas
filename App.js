@@ -15,54 +15,63 @@ export default function App() {
       especies: ["Humanos"],
       composicao: ["Terra", "Água", "Rocha"],
       sistemaEstelar: "Sistema Solar",
+      imagem: require('./assets/Terra.png'),
     },
     {
       nome: "Piscciss",
       especies: ["Piscciss Volanns", "Piscciss Premanns"],
       composicao: ["Água", "Rocha"],
       sistemaEstelar: "Desconhecido",
+      imagem: require('./assets/Piscciss.png'),
     },
     {
       nome: "Aranhascimmia",
       especies: ["Arachnichimps"],
       composicao: ["Árvores", "Terra", "Rocha", "Água Verde"],
       sistemaEstelar: "Desconhecido",
+      imagem: require('./assets/Aranhascimmia.png'),
     },
     {
       nome: "Peptos XII",
       especies: ["Gourmandos"],
       composicao: ["Rocha Rosa"],
       sistemaEstelar: "Sistema Peptos",
+      imagem: require('./assets/PeptosXII.png'),
     },
     {
       nome: "Mikd'lty",
       especies: ["Necrofriggianos"],
       composicao: ["Gelo", "Fogo", "Rocha"],
       sistemaEstelar: "Sistema Monceros",
+      imagem: require('./assets/Mikdlty.png'),
     },
     {
       nome: "Petropia",
       especies: ["Petrosapiens", "Crystalsapiens"],
       composicao: ["Cristal"],
       sistemaEstelar: "Desconhecido",
+      imagem: require ('./assets/Petropia.png'),
     },
     {
       nome: "Galvan Prime",
       especies: ["Galvanianos", "Mecamorfos Galvânicos"],
       composicao: ["Terra, Rocha"],
       sistemaEstelar: "Sistema Galvan",
+      imagem: require('./assets/GalvanPrime.png'),
     },
     {
       nome: "Anur Transyl",
       especies: ["Transylianos", "Ectonuritas", "Anur Khufos", "Loboans"],
       composicao: ["Terra, Rocha, Teias Roxas"],
       sistemaEstelar: "Sistema Anur",
+      imagem: require('./assets/AnurTransyl.png'),
     },
     {
       nome: "Perplexaedro",
       especies: ["Nenhuma"],
       composicao: ["Matérial Branco Desconhecido"],
       sistemaEstelar: "Desconhecido",
+      imagem: require('./assets/perplexaedro.png'),
     },
   ]);
 
@@ -70,11 +79,42 @@ export default function App() {
     <ScrollView>
       <StatusBar style="auto" />
       <ImageBackground style={styles.fundo} source={require("./assets/background.png")}>
-        <Pressable onPress={() => {setVisivel(true)}}><Text style={styles.texto}>Algo</Text></Pressable>
+        <Pressable onPress={() => {setVisivel(true)}}>
+          <Image style={styles.imagemPequena} source={planeta[0].imagem}/>
+        </Pressable>
+        <Pressable onPress={() => {setVisivel(true)}}>
+          <Image style={styles.imagemPequena} source={planeta[1].imagem}/>
+          </Pressable>
+        <Pressable onPress={() => {setVisivel(true)}}>
+          <Image style={styles.imagemPequena} source={planeta[2].imagem}/>
+          </Pressable>
+        <Pressable onPress={() => {setVisivel(true)}}>
+          <Image style={styles.imagemPequena} source={planeta[3].imagem}/>
+          </Pressable>
+        <Pressable onPress={() => {setVisivel(true)}}>
+          <Image style={styles.imagemPequena} source={planeta[4].imagem}/>
+          </Pressable>
+        <Pressable onPress={() => {setVisivel(true)}}>
+          <Image style={styles.imagemPequena} source={planeta[5].imagem}/>
+          </Pressable>
+        <Pressable onPress={() => {setVisivel(true)}}>
+          <Image style={styles.imagemPequena} source={planeta[6].imagem}/>
+          </Pressable>
+        <Pressable onPress={() => {setVisivel(true)}}>
+          <Image style={styles.imagemPequena} source={planeta[7].imagem}/>
+          </Pressable>
+        <Pressable onPress={() => {setVisivel(true)}}>
+          <Image style={styles.imagemPequena} source={planeta[8].imagem}/>
+        </Pressable>
       </ImageBackground>
+
+
+
+
       <Modal visible={visivel} >
         <ImageBackground style={styles.fundo} source={require("./assets/background.png")}>
-          <Pressable onPress={() => {setVisivel(false)}}><Text style={styles.texto}>Algo</Text></Pressable>
+          <Image style={styles.imagemPequena} source={planeta[6].imagem}/>
+          <Pressable onPress={() => {setVisivel(false)}}><Text style={styles.voltar}>Voltar</Text></Pressable>
         </ImageBackground>
       </Modal>
     </ScrollView>
@@ -85,8 +125,22 @@ const styles = StyleSheet.create({
   fundo: {
     backgroundColor: "#000000",
     flex:1,
+    width: "100%",
+    height: "100%",
+    alignItems: "center",
   },
   texto: {
-    color: "#0000ff",
+    color: "#ffffff",
+    fontFamily: "Arial",
+  },
+  imagemPequena: {
+    width: 100,
+    height: 100,
+    marginVertical: 100,
+  },
+  voltar: {
+    color: "#ffffff",
+    fontFamily: "Arial",
+    fontSize: 30,
   },
 });
