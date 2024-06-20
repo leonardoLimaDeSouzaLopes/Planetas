@@ -9,6 +9,8 @@ export default function App() {
 
   const image = "./assets/background.png";
 
+  const [planetaClicado, setPlanetaClicado] = useState(0);
+
   const [planeta, setPlaneta] = useState([
     {
       nome: "Terra",
@@ -75,35 +77,43 @@ export default function App() {
     },
   ]);
 
+  const irTelaPlaneta = (numeroPlaneta) => {
+
+      setVisivel(true);
+
+      setPlanetaClicado(numeroPlaneta);
+
+  };
+
   return (
     <ScrollView>
       <StatusBar style="auto" />
-      <ImageBackground style={styles.fundo} source={require("./assets/background.png")}>
-        <Pressable onPress={() => {setVisivel(true)}}>
+      <ImageBackground style={styles.fundo} source={require("./assets/Background.png")}>
+        <Pressable onPress={() => irTelaPlaneta(0)}>
           <Image style={styles.imagemPequena} source={planeta[0].imagem}/>
         </Pressable>
-        <Pressable onPress={() => {setVisivel(true)}}>
+        <Pressable onPress={() => irTelaPlaneta(1)}>
           <Image style={styles.imagemPequena} source={planeta[1].imagem}/>
           </Pressable>
-        <Pressable onPress={() => {setVisivel(true)}}>
+        <Pressable onPress={() => irTelaPlaneta(2)}>
           <Image style={styles.imagemPequena} source={planeta[2].imagem}/>
           </Pressable>
-        <Pressable onPress={() => {setVisivel(true)}}>
+        <Pressable onPress={() => irTelaPlaneta(3)}>
           <Image style={styles.imagemPequena} source={planeta[3].imagem}/>
           </Pressable>
-        <Pressable onPress={() => {setVisivel(true)}}>
+        <Pressable onPress={() => irTelaPlaneta(4)}>
           <Image style={styles.imagemPequena} source={planeta[4].imagem}/>
           </Pressable>
-        <Pressable onPress={() => {setVisivel(true)}}>
+        <Pressable onPress={() => irTelaPlaneta(5)}>
           <Image style={styles.imagemPequena} source={planeta[5].imagem}/>
           </Pressable>
-        <Pressable onPress={() => {setVisivel(true)}}>
+        <Pressable onPress={() => irTelaPlaneta(6)}>
           <Image style={styles.imagemPequena} source={planeta[6].imagem}/>
           </Pressable>
-        <Pressable onPress={() => {setVisivel(true)}}>
+        <Pressable onPress={() => irTelaPlaneta(7)}>
           <Image style={styles.imagemPequena} source={planeta[7].imagem}/>
           </Pressable>
-        <Pressable onPress={() => {setVisivel(true)}}>
+        <Pressable onPress={() => irTelaPlaneta(8)}>
           <Image style={styles.imagemPequena} source={planeta[8].imagem}/>
         </Pressable>
       </ImageBackground>
@@ -112,8 +122,8 @@ export default function App() {
 
 
       <Modal visible={visivel} >
-        <ImageBackground style={styles.fundo} source={require("./assets/background.png")}>
-          <Image style={styles.imagemPequena} source={planeta[6].imagem}/>
+        <ImageBackground style={styles.fundo} source={require("./assets/Background.png")}>
+          <Image style={styles.imagemGrande} source={planeta[planetaClicado].imagem}/>
           <Pressable onPress={() => {setVisivel(false)}}><Text style={styles.voltar}>Voltar</Text></Pressable>
         </ImageBackground>
       </Modal>
@@ -136,6 +146,11 @@ const styles = StyleSheet.create({
   imagemPequena: {
     width: 100,
     height: 100,
+    marginVertical: 100,
+  },
+  imagemGrande: {
+    width: "62.5%",
+    resizeMode: "contain",
     marginVertical: 100,
   },
   voltar: {
