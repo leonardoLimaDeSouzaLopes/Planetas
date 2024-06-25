@@ -7,8 +7,6 @@ export default function App() {
 
   const [visivel, setVisivel] = useState(false);
 
-  const image = "./assets/background.png";
-
   const [planetaClicado, setPlanetaClicado] = useState(0);
 
   const [planeta, setPlaneta] = useState([
@@ -73,7 +71,7 @@ export default function App() {
       especies: ["Nenhuma"],
       composicao: ["Matérial Branco Desconhecido"],
       sistemaEstelar: "Desconhecido",
-      imagem: require('./assets/perplexaedro.png'),
+      imagem: require('./assets/Perplexaedro.png'),
     },
   ]);
 
@@ -118,12 +116,35 @@ export default function App() {
         </Pressable>
       </ImageBackground>
 
-
-
-
       <Modal visible={visivel} >
         <ImageBackground style={styles.fundo} source={require("./assets/Background.png")}>
           <Image style={styles.imagemGrande} source={planeta[planetaClicado].imagem}/>
+          <View style={styles.informacoes}>
+            <Text style={styles.texto}>Nome: {planeta[planetaClicado].nome}</Text>
+            <Text style={styles.texto}>Especies: {
+              planeta[planetaClicado].especies.map((especie, i, array) => {
+                if (i >= array.length - 2) {
+                  if (i == array.length - 1) {
+                    return especie
+                  }
+                  return especie + " e "
+                }
+                return especie + ", "
+              })
+            }</Text>
+            <Text style={styles.texto}>Composição: {
+              planeta[planetaClicado].composicao.map((material, i, array) => {
+                if (i >= array.length - 2) {
+                  if (i == array.length - 1) {
+                    return material
+                  }
+                  return material + " e "
+                }
+                return material + ", "
+              })
+            }</Text>
+            <Text style={styles.texto}>Sistema Estelar: {planeta[planetaClicado].sistemaEstelar}</Text>
+          </View>
           <Pressable onPress={() => {setVisivel(false)}}><Text style={styles.voltar}>Voltar</Text></Pressable>
         </ImageBackground>
       </Modal>
@@ -141,6 +162,7 @@ const styles = StyleSheet.create({
   },
   texto: {
     color: "#ffffff",
+    fontSize: 20,
     fontFamily: "Arial",
   },
   imagemPequena: {
@@ -151,11 +173,15 @@ const styles = StyleSheet.create({
   imagemGrande: {
     width: "62.5%",
     resizeMode: "contain",
-    marginVertical: 100,
   },
   voltar: {
     color: "#ffffff",
     fontFamily: "Arial",
     fontSize: 30,
   },
+  informacoes: {
+    textAlign: "left",
+    marginHorizontal: "15%",
+    marginBottom: "4em",
+  }
 });
